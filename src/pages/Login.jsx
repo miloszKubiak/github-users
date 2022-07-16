@@ -16,7 +16,7 @@ const Login = () => {
 
 export default Login
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   min-height: 100vh;
   display: grid;
   place-items: center;
