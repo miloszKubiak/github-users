@@ -4,8 +4,9 @@ import styled from "styled-components";
 
 const Info = () => {
 	const data = React.useContext(GithubContext);
+	console.log(data);
 
-	return <div>Info: {data}</div>;
+	return <div>Info</div>;
 };
 
 export default Info;
