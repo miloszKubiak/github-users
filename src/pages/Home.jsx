@@ -4,11 +4,11 @@ import { Navbar, Search, Info, User, Repos } from "../components";
 const Home = () => {
 	return (
 		<main>
-			<Navbar />
-			<Search />
+			{/* <Navbar /> */}
+			{/* <Search /> */}
 			<Info />
 			<User />
-			<Repos />
+			{/* <Repos /> */}
 		</main>
 	);
 };
