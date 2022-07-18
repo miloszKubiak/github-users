@@ -8,7 +8,7 @@ const Home = () => {
 			{/* <Search /> */}
 			<Info />
 			<User />
-			{/* <Repos /> */}
+			<Repos />
 		</main>
 	);
 };
