@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { GithubContext } from "../context/context";
-import { MdBusiness, MdLocationOn, MdLink, MdClass } from "react-icons/md";
+import { MdBusiness, MdLocationOn, MdLink } from "react-icons/md";
 
 const Card = () => {
 	const { githubUser } = useContext(GithubContext);
@@ -57,6 +57,7 @@ const Wrapper = styled.article`
 		position: absolute;
 		top: 0;
 		left: 0;
+		padding: .5rem 1rem 0 1rem;
 		transform: translateY(-100%);
 		background: var(--white);
 		color: var(--grey-5);
@@ -89,7 +90,7 @@ const Wrapper = styled.article`
 			border-radius: 1rem;
 			text-transform: capitalize;
 			color: var(--primary-5);
-			border: 1px solid var(--primary-5);
+			border: 2px solid var(--primary-5);
 			letter-spacing: var(--spacing);
 			transition: var(--transition);
 			cursor: pointer;
