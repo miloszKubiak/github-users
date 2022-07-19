@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { GithubContext } from "../context/context";
-import { ExampleChart, Bar3D, Column3D, Doughnut3D, Pie3D } from "./Charts";
+import { ExampleChart, Bar3D, Column3D, Doughnut2D, Pie3D } from "./Charts";
 
 const Repos = () => {
 	const { repos } = useContext(GithubContext);
@@ -45,6 +45,7 @@ const Repos = () => {
 			<Wrapper>
 				{/* <ExampleChart data={chartData} /> */}
 				<Pie3D data={languages} />
+				<Doughnut2D data={chartData} />
 			</Wrapper>
 		</section>
 	);
@@ -72,9 +73,9 @@ const Wrapper = styled.div`
 		width: 100% !important;
 	}
 
-	.fusioncharts-container {
+	/* .fusioncharts-container {
 		width: 100% !important;
-	}
+	} */
 
 	svg {
 		width: 100% !important;
