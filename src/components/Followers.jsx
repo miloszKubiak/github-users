@@ -52,8 +52,11 @@ const Wrapper = styled.article`
 	}
 
 	.followers {
-		display: grid;
-		grid-template-rows: repeat(auto-fill, minmax(45px, 1fr));
+		/* display: grid;
+		grid-template-rows: repeat(auto-fill, minmax(45px, 1fr)); */
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
 		gap: 1.2rem 1rem;
 		padding: 1rem 2rem;
 		height: 260px;
