@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { GithubContext } from "../context/context";
-import { ExampleChart, Bar3D, Column3D, Doughnut2D, Pie3D } from "./Charts";
+import { Bar3D, Column3D, Doughnut2D, Pie3D } from "./Charts";
 
 const Repos = () => {
 	const { repos } = useContext(GithubContext);
@@ -54,14 +54,13 @@ const Repos = () => {
 		},
 		{ stars: {}, forks: {} }
 	);
-	
+
 	stars = Object.values(stars).slice(-5).reverse();
 	forks = Object.values(forks).slice(-5).reverse();
 
 	return (
 		<section className="section">
 			<Wrapper>
-				{/* <ExampleChart data={chartData} /> */}
 				<Pie3D data={mostUsed} />
 				<Column3D data={stars} />
 				<Doughnut2D data={mostPopular} />
