@@ -20,6 +20,19 @@ const GithubProvider = ({ children }) => {
 	//error
 	const [error, setError] = useState({ show: false, msg: "" });
 
+	const searchGithubUser = async (user) => {
+		toggleError() // i only invoke this function without params because i set default values below
+		//setLoading(true)
+		const response = await axios(`${ROOT_URL}/users/${user}`).catch(
+			(error) => console.log(error)
+		);
+		if (response) {
+			setGithubUser(response.data);
+		} else {
+			toggleError(true, "There is no user with that username.");
+		}
+	};
+
 	//check rate
 	const checkRequests = () => {
 		axios(`${ROOT_URL}/rate_limit`)
@@ -47,7 +60,14 @@ const GithubProvider = ({ children }) => {
 
 	return (
 		<GithubContext.Provider
-			value={{ githubUser, followers, repos, requests, error }}
+			value={{
+				githubUser,
+				followers,
+				repos,
+				requests,
+				error,
+				searchGithubUser,
+			}}
 		>
 			{children}
 		</GithubContext.Provider>
