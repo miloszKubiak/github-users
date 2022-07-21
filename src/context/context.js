@@ -21,14 +21,23 @@ const GithubProvider = ({ children }) => {
 	const [error, setError] = useState({ show: false, msg: "" });
 
 	const searchGithubUser = async (user) => {
-		toggleError() //i only invoke this function without params because i set default values below
-		setIsLoading(true)
+		toggleError(); //i only invoke this function without params because i set default values below
+		setIsLoading(true);
 		const response = await axios(`${ROOT_URL}/users/${user}`).catch(
 			(error) => console.log(error)
 		);
 
 		if (response) {
 			setGithubUser(response.data);
+			const { login, followers_url } = response.data;
+			//repos
+			axios(`${ROOT_URL}/users/${login}/repos?per_page=100`).then(
+				(response) => setRepos(response.data)
+			);
+			//followers
+			axios(`${followers_url}?per_page=100`).then((response) =>
+				setFollowers(response.data)
+			);
 		} else {
 			toggleError(true, "There is no user with that username.");
 		}
