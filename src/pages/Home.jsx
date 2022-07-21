@@ -4,7 +4,7 @@ import { Navbar, Search, Info, User, Repos } from "../components";
 const Home = () => {
 	return (
 		<main>
-			{/* <Navbar /> */}
+			<Navbar />
 			<Search />
 			<Info />
 			<User />

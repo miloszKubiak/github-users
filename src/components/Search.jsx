@@ -5,8 +5,7 @@ import { GithubContext } from "../context/context";
 
 const Search = () => {
 	const [user, setUser] = useState("");
-	const { requests } = useContext(GithubContext);
-	console.log(requests);
+	const { requests, error } = useContext(GithubContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -20,6 +19,11 @@ const Search = () => {
 	return (
 		<section className="section">
 			<Wrapper>
+				{error.show && (
+					<Error>
+						<p>{error.msg}</p>
+					</Error>
+				)}
 				<form onSubmit={handleSubmit}>
 					<div className="form-control">
 						<MdSearch />
@@ -117,5 +121,18 @@ const Wrapper = styled.div`
 		margin-bottom: 0;
 		color: var(--grey-5);
 		font-weight: 400;
+	}
+`;
+
+const Error = styled.article`
+	position: absolute;
+	width: 90vw;
+	top: 0;
+	left: 0;
+	transform: translateY(-100%);
+  font-weight: bold;
+	p {
+		color: red;
+		letter-spacing: var(--spacing);
 	}
 `;
