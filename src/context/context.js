@@ -15,22 +15,25 @@ const GithubProvider = ({ children }) => {
 
 	// request loading
 	const [requests, setRequests] = useState(0);
-	const [loading, setLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	//error
 	const [error, setError] = useState({ show: false, msg: "" });
 
 	const searchGithubUser = async (user) => {
-		toggleError() // i only invoke this function without params because i set default values below
-		//setLoading(true)
+		toggleError() //i only invoke this function without params because i set default values below
+		setIsLoading(true)
 		const response = await axios(`${ROOT_URL}/users/${user}`).catch(
 			(error) => console.log(error)
 		);
+
 		if (response) {
 			setGithubUser(response.data);
 		} else {
 			toggleError(true, "There is no user with that username.");
 		}
+		checkRequests();
+		setIsLoading(false);
 	};
 
 	//check rate
@@ -67,6 +70,7 @@ const GithubProvider = ({ children }) => {
 				requests,
 				error,
 				searchGithubUser,
+				isLoading,
 			}}
 		>
 			{children}
