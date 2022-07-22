@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Loader = () => {
+const PreLoader = () => {
 	return (
 		<Container>
 			<Spinner />
@@ -9,10 +9,14 @@ const Loader = () => {
 	);
 };
 
-export default Loader;
+export default PreLoader;
 
 const Container = styled.div`
-	position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 
 	@keyframes spinner {
 		to {
@@ -22,12 +26,11 @@ const Container = styled.div`
 `;
 
 const Spinner = styled.div`
-	width: 8rem;
-	height: 8rem;
+	width: 16rem;
+	height: 16rem;
 	margin: 0 auto;
-	margin-top: 5rem;
 	border-radius: 50%;
-	border: 0.5rem solid var(--primary-5);
+	border: 1rem solid var(--primary-5);
 	border-top-color: var(--grey-5);
 	animation: spinner 0.6s linear infinite;
 `;
