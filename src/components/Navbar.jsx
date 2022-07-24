@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
+import { FaGithubAlt } from "react-icons/fa";
 
 const Navbar = () => {
 	const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
@@ -9,14 +10,18 @@ const Navbar = () => {
 
 	return (
 		<Wrapper>
-			{isUser && user.picture && (
-				<img src={user.picture} alt={user.name} />
-			)}
-			{isUser && user.name && (
-				<h4>
-					Welcome, <strong>{user.name.toLocaleUpperCase()}</strong>
-				</h4>
-			)}
+			<FaGithubAlt style={{ fontSize: "4rem" }} />
+			<div className="user-container">
+				{isUser && user.picture && (
+					<img src={user.picture} alt={user.name} />
+				)}
+				{isUser && user.name && (
+					<h4>
+						Welcome,{" "}
+						<strong>{user.name.toLocaleUpperCase()}</strong>
+					</h4>
+				)}
+			</div>
 			{isUser ? (
 				<button
 					onClick={() => {
@@ -35,15 +40,18 @@ const Navbar = () => {
 export default Navbar;
 
 const Wrapper = styled.nav`
-	padding: 1.5rem;
+	padding: 1rem;
 	margin-bottom: 4rem;
-	background: var(--white);
+	background: var(--grey-8);
 	text-align: center;
-	display: grid;
-	grid-template-columns: auto auto 100px;
-	justify-content: center;
+	display: flex;
 	align-items: center;
-	gap: 1.5rem;
+	justify-content: space-around;
+
+	@media (max-width: 550px) {
+		flex-direction: column;
+		gap: .5rem;
+	}
 
 	h4 {
 		margin-bottom: 0;
@@ -62,8 +70,15 @@ const Wrapper = styled.nav`
 		border: transparent;
 		font-size: 1.2rem;
 		text-transform: capitalize;
-		letter-spacing: var(--spacing);
-		color: var(--grey-5);
+		color: var(--black);
+		font-weight: bold;
 		cursor: pointer;
+	}
+
+	.user-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
 	}
 `;

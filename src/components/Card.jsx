@@ -45,7 +45,9 @@ const Card = () => {
 export default Card;
 
 const Wrapper = styled.article`
+	flex: 1;
 	position: relative;
+	width: 90vw;
 	padding: 1.5rem 2rem;
 	background: var(--white);
 	border-bottom-left-radius: var(--radius);

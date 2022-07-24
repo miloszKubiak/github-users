@@ -62,12 +62,10 @@ const Wrapper = styled.div`
 	}
 
 	.form-control {
-		background: var(--white);
 		display: flex;
 		align-items: center;
 		border-radius: 5px;
 		padding: 0.5rem;
-		margin: 0.5rem;
 
 		input {
 			border-color: transparent;
@@ -119,8 +117,8 @@ const Wrapper = styled.div`
 	}
 	h3 {
 		margin-bottom: 0;
-		color: var(--grey-5);
-		font-weight: 400;
+		color: var(--black);
+		font-weight: bold;
 	}
 `;
 

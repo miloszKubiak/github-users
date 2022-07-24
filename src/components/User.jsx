@@ -15,14 +15,16 @@ const User = () => {
 export default User;
 
 const Wrapper = styled.section`
-	display: grid;
+	/* display: grid;
+	gap: 3rem 2rem; */
+	display: flex;
 	gap: 3rem 2rem;
 	padding-top: 2rem;
 	margin: 0 auto;
 	max-width: 1170px;
 	width: 90vw;
 
-	@media (min-width: 992px) {
-		grid-template-columns: 1fr 1fr;
+	@media (max-width: 992px) {
+		flex-direction: column;
 	}
 `;

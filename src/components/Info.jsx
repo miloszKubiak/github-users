@@ -65,6 +65,7 @@ export default Info;
 
 const Wrapper = styled.section`
 	display: grid;
+	width: 90vw;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	gap: 1rem 2rem;
 
@@ -78,7 +79,7 @@ const Wrapper = styled.section`
 		column-gap: 3rem;
 		align-items: center;
 		padding: 1rem 2rem;
-		background: var(--white);
+		background: var(--grey-10);
 		border-radius: var(--radius);
 
 		span {

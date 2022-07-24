@@ -29,6 +29,8 @@ export default Followers;
 
 const Wrapper = styled.article`
 	position: relative;
+	flex: 1;
+	width: 90vw;
 	padding: 1.5rem 2rem;
 	background: var(--white);
 	border-bottom-left-radius: var(--radius);
